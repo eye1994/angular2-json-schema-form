@@ -1,7 +1,6 @@
 import { AbstractControl, ValidationErrors } from '@angular/forms';
-import { Observable } from 'rxjs/Observable';
-import { fromPromise } from 'rxjs/observable/fromPromise';
-import { toPromise } from 'rxjs/operator/toPromise';
+import { Observable ,  from as fromPromise } from 'rxjs';
+
 
 /**
  * Validator utility function library:
@@ -18,7 +17,7 @@ import { toPromise } from 'rxjs/operator/toPromise';
  *
  * Multiple type checking and fixing:
  *   getType, isType, isPrimitive, toJavaScriptType, toSchemaType,
- *   _toPromise, toObservable
+ *   toObservable
  *
  * Utility functions:
  *   inArray, xor
@@ -531,16 +530,6 @@ export function isPromise(object): object is Promise<any> {
  */
 export function isObservable(object): object is Observable<any> {
   return !!object && typeof object.subscribe === 'function';
-}
-
-/**
- * '_toPromise' function
- *
- * @param  { object } object
- * @return { Promise<any> }
- */
-export function _toPromise(object): Promise<any> {
-  return isPromise(object) ? object : toPromise.call(object);
 }
 
 /**

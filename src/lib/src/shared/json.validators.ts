@@ -1,7 +1,6 @@
 import { AbstractControl, ValidationErrors, ValidatorFn } from '@angular/forms';
-import { Observable } from 'rxjs/Observable';
-import { forkJoin } from 'rxjs/observable/forkJoin';
-import { map } from 'rxjs/operator/map';
+import { Observable ,  forkJoin } from 'rxjs';
+
 
 import * as _ from 'lodash';
 
@@ -13,6 +12,7 @@ import {
 } from './validator.functions';
 import { forEachCopy } from './utility.functions';
 import { jsonSchemaFormatTests, JsonSchemaFormatNames } from './format-regex.constants';
+import {map} from 'rxjs/internal/operators';
 
 /**
  * 'JsonValidators' class
@@ -803,7 +803,7 @@ export class JsonValidators {
     if (presentValidators.length === 0) { return null; }
     return (control: AbstractControl) => {
       const observables =
-        _executeAsyncValidators(control, presentValidators).map(toObservable);
+        _executeAsyncValidators(control, presentValidators).pipe(map(toObservable));
       return map.call(forkJoin(observables), _mergeErrors);
     }
   }
