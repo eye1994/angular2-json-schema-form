@@ -5,9 +5,14 @@ out-ngc
 docs
 node_modules
 *.log
+CODE_OF_CONDUCT.md
+CONTRIBUTING.md
+inline-resources.js
 
 # Config
 .angular-cli.json
+angular.json
+build.js
 .editorconfig
 .firebaserc
 .gitignore
