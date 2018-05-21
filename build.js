@@ -151,8 +151,8 @@ return Promise.resolve()
     .then(() => console.log('LICENSE file copied.'))
     .then(() => _relativeCopy('README.md', rootFolder, distFolder))
     .then(() => console.log('README.md file copied.'))
-    .then(() => _copyPackageJson(rootFolder, distFolder))
-    .then(() => console.log('package.json file copied and updated.'))
+    // .then(() => _copyPackageJson(rootFolder, distFolder))
+    // .then(() => console.log('package.json file copied and updated.'))
   )
   .catch(e => {
     console.error('Build failed. See below for errors.\n');
