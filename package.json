@@ -55,7 +55,7 @@
     "deploy": "firebase deploy"
   },
   "dependencies": {
-    "ajv": "~6.4.0",
+    "ajv": "6.4.0",
     "lodash": "^4.17.10"
   },
   "peerDependencies": {
